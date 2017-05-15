@@ -146,13 +146,7 @@ module ZhimaAuth
 
     def get_result
       res = JSON.parse(excute)
-      Validation.check_credit_response res
-      result = res["zhima_credit_score_brief_get_response"]["is_admittance"]
-      biz_no = res["zhima_credit_score_brief_get_response"]["biz_no"]
-      {
-        passed: result == "Y" ? true : false,
-        biz_no: biz_no
-      }
+      res["zhima_credit_score_brief_get_response"]
     end
 
     private
